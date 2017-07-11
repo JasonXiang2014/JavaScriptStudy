@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP3 ECMA5新特性</title>
+    <script type="text/javascript" charset="UTF-8">
+
+        //Object.getPrototypeOf():根据实例对象获得原型对象
+
+        function Person() {
+
+        }
+
+        Person.prototype.name = "z3";
+        Person.prototype.age = 20;
+        Person.prototype.sayName = function () {
+            alert("我是原型对象的方法！");
+        }
+
+        var p1 = new Person();
+        var protoTypeObject = Object.getPrototypeOf(p1);//根据实例对象获取原型对象
+        document.write(protoTypeObject.name + "<br>" + protoTypeObject.sayName + "<br>");
+
+        //每次代码读取一个对象的属性的时候：首先会进行一次搜索：搜索实例对象里name的属性，看看有没有
+        //如果没有，再去实例对应的原型对象里去搜索那么属性， 如果有 就返回 没有返回undefined
+
+        var p2 = new Person();
+        p2.name = 'w5';
+        document.write(p2.name + "<br>"); //就想获取原型对象里的name属性 delete p2.name
+
+        //判断一个对象属性 是属于原型对象 还是属于实例属性
+
+        var p3 = new Person();
+        document.write(p3.hasOwnProperty("name") + "<br>");
+
+        //in 操作符 ： for - in
+
+        //in 操作符 判断属性是不是存在于实例对象 和原型对象中
+        var p1 = new Person();
+
+        document.write("name" in p1 );
+        var p2 = new Person();
+        p2.name = 'w3';
+        document.write("name" in p2);
+
+        //判断一个属性是不是存在在原型中
+        
+        function  hasPropertyInProtoType(object, property) {
+            return !object.hasOwnProperty(property)  && property in object;
+        }
+
+        var p3 = new Person();
+
+        document.write("<br>" + "在原型中存在吗？？");
+        document.write(hasPropertyInProtoType(p3, "name"));
+
+
+        //ECMA5 新特性  Object.keys()
+        // 拿到当前对象里的keys 并返回一个数组
+        var p = new Person();
+        p.name = 'z3';
+        p.sex = 20;
+
+        var arr = Object.keys(p);
+        document.write('<br>');
+        document.write(arr + "<br>");
+
+        var attribute = Object.keys(Person.prototype);
+        document.write(attribute+ "<br>");
+
+        //ECMA5  constructor属性 ： 该属性是不能被枚举的 [enable = false]
+        //Object.getOwnPropertyNames(p); 枚举对象所有的属性 ： 不管该内部属性 能否被枚举
+        var attribute = Object.getOwnPropertyNames(Person.prototype);
+        document.write(attribute + "<br>");
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

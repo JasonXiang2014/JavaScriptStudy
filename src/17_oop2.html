@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象编程设计2(原型对象)</title>
+    <script type="text/javascript" charset="UTF-8">
+
+
+        //原型 prototype
+
+        //构造函数式
+
+        /*  function Person(name, page ) {
+         this.name = name;
+         this.page = page;
+
+         this.sayName = function () {
+         alert("我是姓名");
+         }
+         }
+
+         var p1 = new Person('z3', 1);
+         var p2 = new Person('l4', 2);
+         document.write(p1.sayName == p2.sayName); // false
+         document.write(p1.name == p2.name); // false*/
+
+        /*function Person(name, page) {
+         this.name = name;
+         this.page = page;
+         this.sayName = sayName;
+         }
+
+         //只定义了一次函数，优点 ：解决效率问题  缺点 ：只能被一个类引用
+         function sayName() {
+         alert(this.name);
+         }
+
+         var p1 = new Person('z3', 1);
+         var p2 = new Person('l4', 2);
+         document.write(p1.sayName == p2.sayName); // false
+         document.write(p1.name == p2.name); // false*/
+
+        //prototype 创建每一个函数都有一个prototype属性，这个属性其实是一个指针，而这个指针总是指向一个对象
+        //这个对象的用途就是将特定的属性和方法包含在内，起到一个所有实例共享的作用
+
+        function Person() {
+
+        }
+
+        var obj = Person.prototype;
+        //        document.write(obj.constructor);
+        obj.name = 'z3';
+        obj.age = 20;
+        obj.sayName = function () {
+            alert(this.name);
+        };
+
+        var p1 = new Person();
+        var p2 = new Person();
+        document.write(p1.name);
+        document.write(p2.name);
+
+        //构造函数 原型对象 实例对象
+
+        //构造函数.prototype = 原型对象
+        //原型对象.constructor = 构造函数
+        //实例对象的prototype = 原型对象
+        document.write('<br>');
+        document.write(obj.isPrototypeOf(p1));//判断一个对象是不是另一个对象的原型
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

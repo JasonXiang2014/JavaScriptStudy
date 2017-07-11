@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+    <script type="text/javascript" charset="UTF-8">
+
+           /* function test() {
+                function hah() {
+                    alert(this);
+                }
+
+                hah();
+            }
+
+            test();*/
+
+           /*function test() {
+               var _this  = this;
+               function hah() {
+                   alert(_this);
+               }
+
+               hah();
+           }
+
+           test();*/
+
+           /*var a = {
+               user:"追梦子",
+               fn:function(){
+                   console.log(this.user);
+               }
+           }
+           var b = a.fn;
+           b(); //undefined*/
+           var a = {
+               user:"stupid",
+               fn:function(e , ee){
+                  document.write(this.user + " " + e + " " + ee);
+               }
+           }
+
+
+           var b = a.fn;
+//           b();
+//           b.call(a);// b 调用 a里面的方法
+
+       /* function test(ee) {
+            alert(ee);
+        }
+
+        test.call(null, "xxx"); // test 调用自身*/
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype = {
+                constructor : Person
+        }
+        alert(Person.prototype.constructor)
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

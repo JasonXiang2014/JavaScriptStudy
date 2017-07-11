@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Call Apply</title>
+    <script charset="UTF-8" type="text/javascript">
+
+        //call apply  简单的用法： 绑定一些函数用于传递参数的调用
+
+        /* function sum(x, y) {
+         return x + y;
+         }
+
+         function call1(num1, num2) {
+         return sum.call(this, num1, num2);
+         }
+
+         function apply1(num1, num2) {
+         return sum.apply(this, [num1, num2]);
+         }
+
+         alert(call1(10, 20));
+         alert(apply1(10, 20));*/
+
+        //扩充作用域
+
+        window.color = "red";
+
+        var obj = {color: "blue"};
+
+        function showColor() {
+            alert(this.color);
+        }
+
+        showColor.call(this);
+        showColor.call(obj);
+
+
+        //call 方法的简单模拟与实现
+
+        //function 方法
+        function test1(a, b) {
+            return a + b;
+        }
+
+        //Obj 自定义的对象
+        function Obj(x, y) {
+            this.x = x;
+            this.y = y;
+            return x * y;
+        }
+
+        var o = new Obj(10, 20);
+
+        o.method = test1;
+        alert(o.method(10, 20));
+        delete o.method;
+
+        alert(test1.call(o, o.x, o.y));// 方法临时绑定到对象， 使用完毕后删除对象
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

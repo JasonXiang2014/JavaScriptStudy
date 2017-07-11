@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级作用域</title>
+    <script type="text/javascript" charset="UTF-8">
+
+        /* function test() {
+         for(var i = 0 ; i <=5; i++){
+         alert(i);
+         }
+         alert(i);
+         }
+
+         test();*/
+
+        //() 表示执行
+
+        function test() {
+            (function () {
+                for (var i = 0; i <= 5; i++) {
+                    alert(i);
+                }
+            })();
+//           alert(i);
+        }
+        test();
+        (function () {
+            alert('我直接执行了！');
+        })();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

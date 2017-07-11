@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承练习</title>
+    <script type="text/javascript" charset="UTF-8">
+
+        //原型继承
+        //原型继承的特点： 即继承了父类的模板， 又继承了父类的原型对象
+
+        /* //父类
+         function Person(name, age) {
+         this.name = name;
+         this.age = age;
+         }
+
+         Person.prototype = {
+         id: 10
+         }
+
+         //子类
+         function Boy(sex) {
+         this.sex = sex;
+         }
+
+         //继承已经实现
+         Boy.prototype = new Person('张三', 44);
+
+         var boy1 = new Boy('male');
+         alert(boy1.name);
+         alert(boy1.id);*/
+
+        //类继承（只继承模板） 不能继承原型对象（借用构造函数的方式继承）
+
+        //父类
+        /*function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype = {
+            id: 10
+        }
+
+        //子类
+        function Boy(name, age, sex) {
+            Person.call(this, name, age);
+            this.sex = sex;
+        }
+
+
+        var b = new Boy("张三", 11, '男');
+
+        alert(b.name);
+        alert(b.age);
+        alert(b.sex);
+        alert(b.id);//父类的原型对象并没有继承*/
+
+
+
+        //原型继承 + 借用构造函数继承 = 混合继承
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype = {
+            id: 10,
+            sayName : function () {
+                alert(this.name);
+            }
+        }
+
+        //子类
+        function Boy(name, age, sex) {
+            Person.call(this, name, age);//1 借用构造函数继承  集成父类的模板
+            this.sex = sex;
+        }
+
+        // 2 原型继承
+        Boy.prototype = new Person(); //继承父类的原型对象
+        //只剩下 父类的实例 和父类的原型对象的关系
+        var  boy = new Boy("陈蕾宇", 11, '女');
+        alert(boy.name);
+        alert(boy.age);
+        boy.sayName();
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

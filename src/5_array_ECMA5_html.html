@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" charset="UTF-8">
+
+
+        /**
+         * indexof lastIndexOf
+         */
+
+        var arr = [1, 2, 3, 4, 5, 6];
+        /*var index = arr.indexOf(5);
+         alert(index);*/
+
+        //5个新加迭代的方法
+        //every ：对数组的每一项进行一个函数的运行 如果都返回true 最后则返回true 如果有一个为false 则为false
+
+        /*  var result = arr.every(function (item, index, array) {
+         return item > 0;
+         });
+         alert(result);*/
+
+
+        //filter : 对数组的每一项进行一个函数的运行 给定的函数去执行 把过滤后的结果返回
+        /*  var result = arr.filter(function (item, index, array) {
+         return item > 2;
+         })
+         alert(result);*/
+
+        //forEach : 循环数组的每一项值 并执行一个方法
+        /* var result = arr.forEach(function (p1, p2, p3) {
+         alert(p1);
+         })*/
+
+        //map 对于数组的每一个元素进行一个函数的运行 可以经过函数执行后返回新数组 把新的数组返回
+        var result = arr.map(function (p1, p2, p3) {
+            return p1 * 2;
+        })
+        alert(result);
+
+        //some 和every的作用相反
+
+        //reduce  reduceRight  遍历方向不一样
+        //pre 前一个值  ， 当前值 ， 索引位置， array
+        var result = arr.reduce(function (prev, cur, index, array) {
+
+        });
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

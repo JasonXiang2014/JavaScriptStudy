@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用js特性，去除数组中的重复项</title>
+
+    <script type="text/javascript" charset="UTF-8">
+
+        //js对象中的特性： 在js对象中 key 是永远不会重复的
+
+        var arr = [1, 2, 2, 4, 5, 6, 7, 7, 8, 10];
+        var toObject = function (arr) {
+            var obj = {};
+            var j;
+            for (var i = 0, j = arr.length; i < j; i++) {
+                obj[arr[i]] = true;
+            }
+            return obj;
+        };
+
+        var keys = function (obj) {
+            var arr = [];
+            for (var att in obj) {
+                if (obj.hasOwnProperty(att)) {
+                    arr.push(att);
+                }
+            }
+            return arr;
+
+        };
+
+        function unique(arr) {
+            return keys(toObject(arr));
+        }
+
+        alert(unique(arr));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

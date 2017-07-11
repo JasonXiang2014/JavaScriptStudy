@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单原型</title>
+    <script type="text/javascript" charset="UTF-8">
+
+        //简单原型  即通过对象字面量来重写整个原型对象（这种方法会改变对象的构造器）
+
+        /*function Person() {
+
+        }
+
+        /!*Person.prototype.name = 'z3';
+         Person.prototype.sex = 'male';*!/
+
+        Person.prototype = {
+            constructor: Person, //必须得表示原型对象的构造器
+            name: 'z3',
+            age: '20',
+            job: '程序员',
+            say: function () {
+                alert('我是原型的函数');
+            }
+        };*/
+
+        //ECMA5 给原型对象重新设置构造器的方法 Object.defineProperty()
+
+        // 3个参数 参数1 ：重设构造器的对象  参数2： 设置什么属性 参数3： options 配置项
+        /* Object.defineProperty(Person.prototype, 'constructor', {
+         enumerable : false,
+         value : 'person'
+         });
+         var p1 = new Person();
+         //        alert(p1.say);
+         alert(Person.prototype.constructor);
+
+         //枚举对象的keys
+         for(att in p1){
+         alert(att);
+         }*/
+
+        //原型的动态性
+
+      /*  function Person() {
+
+        }
+
+        var p1 = new Person();
+        Person.prototype.say = function () {
+         alert('我是方法');
+        }
+        p1.say();*/
+
+
+        function Person() {
+
+        }
+
+        var p1 = new Person(); // 简单原型对象  注意前后顺序
+
+        Person.prototype = {
+            constructor: Person, //必须得表示原型对象的构造器
+            name: 'z3',
+            age: '20',
+            job: '程序员',
+            say: function () {
+                alert('我是原型的函数');
+            }
+        };
+        p1.say()
+        var p2 = new Person();
+        p2.say();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

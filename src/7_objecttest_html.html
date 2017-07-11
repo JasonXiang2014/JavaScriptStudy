@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ObjectTest</title>
+    <script type="text/javascript" charset="UTF-8">
+
+
+        function Map() {
+            var obj = {}; //空的对象容器， 承装键值对
+            this.put = function (key, value) {
+                obj[key] = value; //把键值对绑定到object对象上
+            }
+
+            this.size = function () {
+                var count = 0;
+                for (var attr in obj) {
+                    count++;
+                }
+                return count;
+            }
+            this.get = function (key) {
+                if (obj[key] || obj[key] === false || obj[key] === 0) {
+                    return obj[key];
+                } else {
+                    return null;
+                }
+            }
+            this.remove = function (key) {
+                if (obj[key] || obj[key] === false || obj[key] === 0) {
+                    delete obj[key];
+                }
+            }
+            this.eachMap = function (fn) {
+
+                for (var attr in obj) {
+                    fn(attr, obj[attr]);
+                }
+
+            }
+
+        }
+
+        //模拟java里的map
+        var m = new Map();
+        m.put("01", "abc");
+        m.put("02", false);
+        m.put("03", 0);
+        /*alert(m.size());
+         alert(m.get("01"));
+         alert(m.get("02"));
+         alert(m.get("03"));*/
+
+        m.eachMap(function (key, value) {
+            alert(key + " " + value);
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

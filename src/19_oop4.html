@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP4 自己实现Array的 forEach </title>
+    <script type="text/javascript" charset="UTF-8">
+
+
+        //Array forEach 方法
+        //ECMA5 forEach 循环只适合遍历数组的每一项（只适合遍历一维数组）
+
+        var arr = [1, 2, 3, [4, [5]]];
+
+        //        var arr = [1, 2, 3, 4, 5];
+
+        arr.forEach(function (item, indxe, array) {
+            document.write(item);
+        })
+
+        //自己实现一个Array each 方法 能遍历多维数据
+        var arr = [1, 2, 3, [4, [5, [6]]]];
+
+        Array.prototype.each = function (fn) {
+
+            try {
+                //1 目的 ：遍历数组的每一项
+                this.i || (this.i = 0); //计数器 记录当前遍历的元素位置
+                //2 严谨的判断什么时候去走each 核心方法
+                //当数组的长度大于0 && 并且传递的参数必须为函数
+                if (this.length > 0 && fn.constructor === Function) {
+                    //循环遍历数组的每一项
+                    /*for (this.i in  this) {
+
+                     }*/
+                    while (this.i < this.length) { //while循环的范围
+                        //获取数组的每一项
+                        var e = this[this.i];
+                        if (e && e.constructor == Array) {
+                            //如果当前元素获取到了 并且当前元素是一个数组
+                            //直接做递归操作
+                            e.each(fn);
+                        } else {
+                            //如果不是数组 (那就是一个单个元素)
+                            //这里的目的就是为了把数组的当前元素传递给fn函数，并让函数执行
+//                                fn.apply(null, [e]);
+                            fn.call(e, e);
+                        }
+
+                        this.i++;
+                    }
+                    this.i = null;//释放内存 垃圾回收机制回收变量
+                }
+
+
+            } catch (ex) {
+                //do something
+            }
+            return this;
+        }
+
+        arr.each(function (item) {
+            alert(item);
+        })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

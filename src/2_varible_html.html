@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量学习</title>
+    <script type="text/javascript" charset="UTF-8">
+
+        //关于全局变量和局部变量的说明
+        /*var c = 3; //number 全部变量
+         //变量一共有两种： 全局变量 局部变量
+
+         //方法
+         function test() {
+         var c = 2; //局部变量
+         a = 5; //全局变量
+         alert(c);
+         }
+
+         test();//方法执行
+         alert(a);*/
+
+        //javascript 是弱类型的脚本语言，根据赋值决定变量类型
+        //Number类型 包括整数和小数 NAN infinity -infinity
+        var a1 = 10;
+        var a2 = 10.5;
+        var a3 = NaN;//not a number
+        var a4 = 1 / 0; //正无穷
+        var a5 = -1 / 0; //负无穷
+        var a6 = 070; //8进制 和 16进制（0xA）
+        //        alert(a6);
+
+        /* var a7 = 0.1;
+         var a8 = 0.2;
+
+         //不要做小数相加的判断 会损失精度
+         if (a7 + a8 == 0.3) {
+         alert("等于0.3");
+         } else {
+         alert("不等于0.3");
+         }
+         */
+        var a9 = window.parseInt("aaaabbbbcccc");//NAN
+        //        alert(a9);
+
+        //undefined 数据类型 他的值只有一个： undefined 表示变量声明了，但是没有被赋值
+        var b1;
+        //        alert(b1);
+
+        //Null 空值
+        var b2 = null;
+        //        alert(b2);
+
+        //String javascript 不区分单双引号
+        var str1 = "hello javascript";
+
+        //Boolean
+        var flag1 = true;
+
+        //引用数据类型（Object类型 ，数组,日期类型，正则表达式）
+        var arr = [1, 2, 3];
+        var date = new Date();
+        var obj = {}; //空对象
+
+        //typeof 操作符 用来判断数据类型
+        var a = 10;
+        var b = 10.3;
+        var c = true;
+        var d = "abce";
+        var f = NaN;
+        var g = [1, 2, 3];
+        var h = undefined;
+        var i = null; //空对象的引用类型
+        alert(typeof i);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的创建方式</title>
+
+    <script type="text/javascript" charset="UTF-8">
+        /* 了解函数的基本概念
+         函数的定义方式
+         函数的参数
+         this
+         call
+         apply
+         执行环境、作用域链
+         垃圾收集*/
+
+        //简单的一个函数 ： function 关键字 + 函数的名字 ( 函数没有返回值类型)
+        //参数不需要加类型
+        //参数列表相当于函数入口，return 相当于函数的出口
+        function test(a, b) {
+            return a + b;
+        }
+
+        test(10, 20);
+        alert(typeof  test);//函数也是一种数据类型(function 类型)
+
+        function test1(aa) {
+            aa();
+        }
+
+        function test2() {
+            alert("执行啦");
+        }
+
+        test1(test2);
+        test1(function () {
+            alert("我也执行啦"); //匿名函数
+        });
+
+
+        //js中函数是可以嵌套定义的，并没有实际的意义
+        function test3() {
+            function test4() {//函数嵌套
+                alert("我是test4")
+            }
+
+            test4();
+        }
+
+        test3();
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

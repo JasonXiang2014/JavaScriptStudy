@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象程序设计</title>
+    <script type="text/javascript" charset="UTF-8">
+        /* 学习目标
+         ——了解面向对象程序的特点
+         —— 学会JS模拟面向对象的方式
+         —— 理解prototype
+         —— 理解继承*/
+
+        var obj = {};
+        obj.name = 'z3';
+        obj.sex = 'male';
+        obj.sayName = function () {
+            alert('我是z3');
+        };
+
+        //类的概念
+
+        // 第一种形式 工厂模型 
+
+        /*function createPerson(name, sex, age) {
+         var obj = new Object();
+         obj.name = name;
+         obj.sex = sex;
+         obj.age = age;
+         obj.sayName = function () {
+         alert(this.name);
+         }
+         return obj;
+         }
+
+         var p1 = createPerson('z3', 'male', '98');
+         alert(JSON.stringify(p1));
+         p1.sayName();*/
+
+        //第二种形式 构造函数式  new Array new Date
+
+        //函数的第一个字母大小 (类的模板)
+        function Person(name , age , sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.sayName = function () {
+                alert(this.name);
+            }
+        }
+
+        {
+            new Person('','','').name;
+            Person('xxxxx','xxx','');
+            document.writeln(age);
+        }
+
+        //构造一个对象 new 关键字 传递参数 执行模板代码 返回对象
+
+        /*var p1 = new Person('xxx', 20, 'female');
+        p1.sayName();
+
+        //类的概念 根据模板创建不同的实例
+        document.writeln(p1.constructor);
+        document.write('<br>');
+        document.writeln(p1.constructor == Person);
+        document.writeln(p1 instanceof  Person);
+        document.writeln(p1 instanceof  Object);*/
+
+        //创建对象的方式
+
+        //1 当作构造函数去使用
+        var p1 = new Person("hello js", 10, 'middle');
+        //2 作为普通的函数去使用
+        Person("hello js", 10, 'secret'); //在全局环境里定义属性并复制 直接定义的Window上 Window.Person();
+        document.write(name);
+        //3 在另一个对象的作用域中调用
+        var o =new Object();
+        // call apply  把方法绑定到当前对象上
+        Person.call(o, "hello js _~_", 10, 'secret');
+        document.write(o.name);
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

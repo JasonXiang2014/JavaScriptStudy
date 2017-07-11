@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单体对象</title>
+    <script>
+
+        //Global 全局的 终极的 兜底的对象  （不存在的）
+
+        var uri = "http://www.bjsxt.com cn";
+
+        var str1 = encodeURI(uri);// url ：// 不会编码
+        var str2 = encodeURIComponent(uri);//常用的方法（任何不标准的文字都会进行编码）
+
+        /*        alert(str1);
+         alert(str2);*/
+
+        //encodeURI 、encodeURIComponent  decodeURI decodeURIComponent
+
+        //evel(String) 方法 无形的javascript解析器
+
+        //var str = "var a = 10; var b = 20";
+        //eval(str);
+        //alert(a + b);
+
+        //数组字符串 直接使用 ：eval(Stringarr)
+        //{name : z3, age :20}
+        //        var strobj = "{name : 'z3', age : 20}";
+        //        var obj = eval('(' + strobj + ')');// 加括号 封闭的执行域
+
+        //        alert(JSON.stringify(obj));
+
+        //parseInt parseFloat
+
+        //        escape unescape  URI
+
+        /* var str1 = "尚学堂";
+         var str2 = escape(str1);
+         alert(str2);
+         alert(unescape(str2));*/
+
+        //        isNaN()
+        // 在 JS里面 NAN ！= NAN
+        function printTime() {
+            //Date 类型
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var da = date.getDate();
+            var day = date.getDay();//星期几
+            var h = date.getHours();
+            var min = date.getMinutes();
+            var seconds = date.getSeconds();
+            document.write('今天是' + year + "年" + month + "月" + da + "日" + h + ":" + min + ":" + seconds + "星期" + day);
+            document.write("\n");
+            document.write(date.getTime());
+        }
+
+        printTime();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

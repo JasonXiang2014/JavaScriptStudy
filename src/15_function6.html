@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+    <script type="text/javascript" charset="UTF-8">
+
+        /*var name = "xiao A";
+         var obj = {
+         name: "xiao B",
+         getName: function () {
+         return function () {
+         return this.name;
+         }
+         }
+         };
+         alert(obj.getName()());*/
+
+        /*var name = "xiao A";
+         var obj = {
+         name: "xiao B",
+         getName: function () {
+
+         var o = this;
+         alert(JSON.stringify(o));
+         alert(this.name);
+         return function () {
+         return o.name;
+         }
+         }
+         };
+         alert(obj.getName()());*/
+
+        //闭包 一个函数可以访问另外一个函数作用域中的变量
+        //封闭性 ： private 起到一个保护变量的作用
+
+        function f(x) {
+            var temp = x;
+            return function (x) {
+                temp += x;
+                alert(temp);
+            }
+        }
+        var a = f(50);
+        alert(a);
+        a(5);
+        a(10);
+        a(20);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
